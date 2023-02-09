@@ -1,7 +1,7 @@
 .profile__add-button-images {
     background-size: cover;
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     margin: 14px 64px;
 }
 @media (max-width: 600px) {
