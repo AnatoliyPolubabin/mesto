@@ -14,5 +14,5 @@
 
 .element__group-title-like:active {
     opacity: 3;
-    background-image: url("/image/active.png");
+    background-image: url("../../../image/active.png");
 }

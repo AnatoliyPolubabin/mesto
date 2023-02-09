@@ -1,7 +1,7 @@
 let popup = document.querySelector('.popup');
 let Edit_button = document.querySelector('.profile-info__edit-button');
 let title=document.querySelector('.profile-info__title');
-let subtitle=document.querySelector('.profile-info__subtitle');
+let subtitle = document.querySelector('.profile-info__subtitle');
 let nameInput = document.querySelector('.popup__container-input_name_first');
 let jobInput = document.querySelector('.popup__container-input_about_you');
 let close = document.querySelector('.popup__container-close');
