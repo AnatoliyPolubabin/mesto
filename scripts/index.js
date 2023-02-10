@@ -5,7 +5,7 @@ let subtitle = document.querySelector('.profile-info__subtitle');
 let nameInput = document.querySelector('.popup__container-input_name_first');
 let jobInput = document.querySelector('.popup__container-input_about_you');
 let close = document.querySelector('.popup__container-close');
-let formElement = document.querySelector('.popup__container'); 
+let formElement = document.querySelector('.form'); 
 
 Edit_button.addEventListener("click",OpenForm);
 close.addEventListener("click",CloseForm);
