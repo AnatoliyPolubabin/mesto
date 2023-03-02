@@ -1,27 +1,26 @@
-const popup = document.querySelector('.popup');
 const popupProfile = document.querySelector('.popup-profile');
 const popupMesto = document.querySelector('.popup-mesto');
-const editButton = document.querySelector('.profile-info__edit-button');
-const addButton = document.querySelector('.profile__add-button');
+const buttonOpenProfilePopup = document.querySelector('.profile-info__edit-button');
+const buttonOpenPopupAdd = document.querySelector('.profile__add-button');
 const title = document.querySelector('.profile-info__title');
 const subtitle = document.querySelector('.profile-info__subtitle');
 const nameInput = popupProfile.querySelector('.popup__container-input_type_name');
 const jobInput = popupProfile.querySelector('.popup__container-input_type_job');
-const closeProfile = popupProfile.querySelector('.popup__container-close_profile');
-const closeMesto = popupMesto.querySelector('.popup__container-close_mesto');
-const formElement = document.querySelector('.form');
-const popupImages = document.querySelector('.popup-images');
-const Template = document.querySelector('#element').content; 
-const container = document.querySelector('.elements');
+const buttonCloseProfilePopup = popupProfile.querySelector('.popup__container-close_profile');
+const buttonCloseMestoPopup = popupMesto.querySelector('.popup__container-close_mesto');
+const formElement = document.querySelector('.popup__container');
+const popupImage = document.querySelector('.popup-images');
+const cardTemplate = document.querySelector('#element').content;
+const cardsContainer = document.querySelector('.elements');
 const titleMesto = document.querySelector('.element__title');
 const imageMesto = document.querySelector('.element__image');
 const titleInput = document.querySelector('.popup__container-input_name_mesto');
 const imageInput = document.querySelector('.popup__container-input_link_picture');
 const formElementMesto = document.querySelector('.popup__container-create');
-const formMesto = document.querySelector('.form-mesto');
-const closeImages = document.querySelector('.popup__container-close-images');
-const imageCard=popupImages.querySelector('.popup__image');
-const imageTitle=popupImages.querySelector('.popup__image-title')
+const mestoForm = document.querySelector('.form-mesto');
+const buttonCloseImagePopup = document.querySelector('.popup__container-close-images');
+const imageCard = popupImage.querySelector('.popup__image');
+const imageTitle = popupImage.querySelector('.popup__image-title')
 
 const initialCards = [
   {
@@ -52,56 +51,58 @@ const initialCards = [
 
 createCards()
 
-function createCards() { 
-  const cards= initialCards.map((item) => {
-    return  create(item)
-});
-container.append(...cards);
+function createCards() {
+  const cards = initialCards.map((item) => {
+    return createItemCard(item)
+  });
+  cardsContainer.append(...cards);
 }
 
-function create(item) {
-  const card = Template.querySelector('.element').cloneNode(true);
+
+function createItemCard(item) {
+  const card = cardTemplate.querySelector('.element').cloneNode(true);
+  const cardImage = card.querySelector('.element__image')
   card.querySelector('.element__title').textContent = item.name;
-  card.querySelector('.element__image').src = item.link;
-  card.querySelector('.element__image').alt=item.name;
-  
-  const like =  card.querySelector('.element__group-title-like')
-  const delete_card =  card.querySelector('.element__group-title-delete')
-  const image_button =  card.querySelector('.element__image-button')
-  
+  cardImage.src = item.link;
+  cardImage.alt = item.name;
+
+  const like = card.querySelector('.element__group-title-like')
+  const cardDelete = card.querySelector('.element__group-title-delete')
+  const buttonImage = card.querySelector('.element__image-button')
+
   like.addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__group-title-like_active');
   });
 
-  delete_card.addEventListener('click', function (evt) {
+  cardDelete.addEventListener('click', function (evt) {
     card.remove();
   });
 
-  image_button.addEventListener('click', (e) => {
-    openPopup(popupImages);
+  buttonImage.addEventListener('click', (e) => {
+    openPopup(popupImage);
     console.log(e.target);
     imageCard.src = e.target.src
     imageTitle.textContent = e.target.closest('.element').querySelector('.element__title').textContent;
   });
-  closeImages.addEventListener("click", closePopupImages)
+  buttonCloseImagePopup.addEventListener("click", closePopupImage)
   return card;
 }
 
-function closePopupImages() {
-  closePopup(popupImages);
+function closePopupImage() {
+  closePopup(popupImage);
 }
 
-editButton.addEventListener("click", () => {
+buttonOpenProfilePopup.addEventListener("click", () => {
   openPopup(popupProfile);
   nameInput.value = title.textContent;
   jobInput.value = subtitle.textContent;
 });
 
-closeProfile.addEventListener("click", () => { 
+buttonCloseProfilePopup.addEventListener("click", () => {
   closePopup(popupProfile);
 });
 
-formElement.addEventListener('submit', (evt) => { 
+formElement.addEventListener('submit', (evt) => {
   evt.preventDefault();
   title.textContent = nameInput.value;
   subtitle.textContent = jobInput.value;
@@ -109,28 +110,28 @@ formElement.addEventListener('submit', (evt) => {
 });
 
 
-addButton.addEventListener("click", () => { 
+buttonOpenPopupAdd.addEventListener("click", () => {
   openPopup(popupMesto);
   formMesto.reset();
 });
 
-closeMesto.addEventListener("click", () => { 
+buttonCloseMestoPopup.addEventListener("click", () => {
   closePopup(popupMesto);
 });
 
-function openPopup(popup) { 
+function openPopup(popup) {
   popup.classList.toggle('popup_opened');
 }
 
-function closePopup(popup) { 
+function closePopup(popup) {
   popup.classList.toggle('popup_opened');
 }
 
-formElementMesto.addEventListener('click', (evt) => { 
+formElementMesto.addEventListener('click', (evt) => {
   evt.preventDefault();
   const name = titleInput.value
   const link = imageInput.value
-  const card = create({name:name, link:link});
+  const card = createItemCard({ name: name, link: link });
   closePopup(popupMesto)
-  container.prepend(card);
+  cardsContainer.prepend(card);
 });
