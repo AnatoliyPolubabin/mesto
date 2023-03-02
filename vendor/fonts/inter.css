@@ -1,4 +1,4 @@
-@inter {
+@font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
@@ -7,7 +7,7 @@
     url("Inter-Regular.woff?v=3.19") format("woff");
 }
 
-@inter {
+@font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
@@ -16,7 +16,7 @@
     url("Inter-Medium.woff?v=3.19") format("woff");
 }
 
-@inter {
+@font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 900;
