@@ -8,7 +8,8 @@ const nameInput = popupProfile.querySelector('.popup__container-input_type_name'
 const jobInput = popupProfile.querySelector('.popup__container-input_type_job');
 const buttonCloseProfilePopup = popupProfile.querySelector('.popup__container-close_profile');
 const buttonCloseMestoPopup = popupMesto.querySelector('.popup__container-close_mesto');
-const formElement = document.querySelector('.popup__container');
+const formElementProfile = document.querySelector('.popup__container');
+const formAddCard = document.querySelector('.popup-mesto__container-card');
 const popupImage = document.querySelector('.popup-images');
 const cardTemplate = document.querySelector('#element').content;
 const cardsContainer = document.querySelector('.elements');
@@ -102,7 +103,7 @@ buttonCloseProfilePopup.addEventListener("click", () => {
   closePopup(popupProfile);
 });
 
-formElement.addEventListener('submit', (evt) => {
+formElementProfile.addEventListener('submit', (evt) => {
   evt.preventDefault();
   title.textContent = nameInput.value;
   subtitle.textContent = jobInput.value;
@@ -127,7 +128,7 @@ function closePopup(popup) {
   popup.classList.toggle('popup_opened');
 }
 
-formElementMesto.addEventListener('click', (evt) => {
+formAddCard.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const name = titleInput.value
   const link = imageInput.value
