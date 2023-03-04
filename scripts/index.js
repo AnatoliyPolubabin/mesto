@@ -114,6 +114,8 @@ formElementProfile.addEventListener('submit', (evt) => {
 buttonOpenPopupAdd.addEventListener("click", () => {
   openPopup(popupMesto);
   formMesto.reset();
+  removeValidationErrors (popupMesto);
+  disableSubmitButton(formElementMesto);
 });
 
 buttonCloseMestoPopup.addEventListener("click", () => {
