@@ -25,6 +25,7 @@
     color: #000000;
     border: 1px solid #000000;
     background: #FFFFFF;
+    
 }
 @media (max-width: 600px) {
     .popup__container-button {

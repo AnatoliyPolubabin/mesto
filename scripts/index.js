@@ -82,17 +82,16 @@ function createItemCard(item) {
     openPopup(popupImage);
     console.log(e.target);
     imageCard.src = e.target.src
-    imageTitle.textContent = e.target.closest('.element').querySelector('.element__title').textContent;
+    titleImage.textContent = e.target.closest('.element').querySelector('.element__title').textContent;
+    imageCard.alt = titleImage.textContent;
+    console.log(imageCard.alt);
   });
-  buttonCloseImagePopup.addEventListener("click", closePopupImage)
   return card;
 }
-
 function closePopupImage() {
   closePopup(popupImage);
 }
 
-document.addEventListener("keydown", keyHandlerEsc);
 
 function keyHandlerEsc(evt) {
   if (evt.key === "Escape") {
@@ -106,7 +105,7 @@ function closePopup(popup) {
 }
 
 popupMesto.addEventListener("click", (e) => {
-  if(e.target===popupMesto || e.target===closeMesto){
+  if(e.target===popupMesto || e.target===buttonCloseMestoPopup){
     closePopup(popupMesto);
   }
 });
@@ -118,7 +117,7 @@ popupProfile.addEventListener("click", (e) => {
 });
 
 popupImage.addEventListener("click", (e) => {
-  if(e.target===popupImage || e.target===closeImages){
+  if(e.target===popupImage || e.target===buttonCloseImagePopup){
     closePopup(popupImage);
   }
 })
@@ -141,19 +140,20 @@ formElementProfile.addEventListener('submit', (evt) => {
 
 buttonOpenPopupAdd.addEventListener("click", () => {
   openPopup(popupMesto);
-  formMesto.reset();
+  mestoForm.reset();
+  removeValidationErrors (popupMesto);
+  disableSubmitButton(formElementMesto);
 });
 
-buttonCloseMestoPopup.addEventListener("click", () => {
-  closePopup(popupMesto);
-});
 
 function openPopup(popup) {
   popup.classList.toggle('popup_opened');
+  document.addEventListener("keydown", keyHandlerEsc);
 }
 
 function closePopup(popup) {
   popup.classList.toggle('popup_opened');
+  document.removeEventListener("keydown", keyHandlerEsc);
 }
 
 formAddCard.addEventListener('submit', (evt) => {
@@ -161,6 +161,6 @@ formAddCard.addEventListener('submit', (evt) => {
   const name = titleInput.value
   const link = imageInput.value
   const card = createItemCard({ name: name, link: link });
-  closePopup(popupMesto)
   cardsContainer.prepend(card);
+  closePopup(popupMesto)
 });
