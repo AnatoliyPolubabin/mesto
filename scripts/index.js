@@ -126,8 +126,8 @@ buttonOpenProfilePopup.addEventListener("click", () => {
 
 formElementProfile.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  titleProfile.textContent = nameInput.value;
-  subtitleProfile.textContent = jobInput.value;
+  title.textContent = nameInput.value;
+  subtitle.textContent = jobInput.value;
   closePopup(popupProfile);
 });
 
