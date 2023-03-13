@@ -52,6 +52,27 @@ const initialCards = [
 
 createCards()
 
+function removeValidationErrors (popup) {
+  const errors = popup.querySelectorAll(".error")
+  errors.forEach((error) => {
+    error.textContent = '';
+  });
+  const inputs = popup.querySelectorAll(".popup__container-input");
+  inputs.forEach((input) => {
+    input.classList.remove("popup__container-input_type_error");
+  });
+  }
+  
+  function enableSubmitButton(button) {
+    button.classList.remove("popup__container-button_disabled");
+    button.disabled = false;
+  }
+  
+  function disableSubmitButton(button) {
+    button.classList.add("popup__container-button_disabled");
+    button.disabled = true;
+  }
+
 function createCards() {
   const cards = initialCards.map((item) => {
     return createItemCard(item)
@@ -62,13 +83,14 @@ function createCards() {
 
 function createItemCard(item) {
   const card = cardTemplate.querySelector('.element').cloneNode(true);
-  card.querySelector('.element__title').textContent = item.name;
   card.querySelector('.element__image').src = item.link;
   card.querySelector('.element__image').alt = item.name;
+  card.querySelector('.element__title').textContent = item.name;
 
   const like = card.querySelector('.element__group-title-like')
   const cardDelete = card.querySelector('.element__group-title-delete')
   const buttonImage = card.querySelector('.element__image-button')
+
 
   like.addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__group-title-like_active');
@@ -78,16 +100,15 @@ function createItemCard(item) {
     card.remove();
   });
 
-  buttonImage.addEventListener('click', (e) => {
+
+  buttonImage.addEventListener('click', function () {
+    imageCard.src = item.link;
+    imageCard.alt = item.name;
+    imageTitle.textContent = item.name;
     openPopup(popupImage);
-    console.log(e.target);
-    imageCard.src = e.target.src
-    imageTitle.textContent = e.target.closest('.element').querySelector('.element__title').textContent;
-    imageCard.alt = imageTitle.textContent;
-    console.log(imageCard.alt);
   });
   return card;
-}
+};
 
 function handlerKeyEsc(evt) {
   if (evt.key === "Escape") {
@@ -141,12 +162,12 @@ buttonOpenPopupAdd.addEventListener("click", () => {
 
 
 function openPopup(popup) {
-  popup.classList.toggle('popup_opened');
+  popup.classList.add('popup_opened');
   document.addEventListener("keydown", handlerKeyEsc);
 }
 
 function closePopup(popup) {
-  popup.classList.toggle('popup_opened');
+  popup.classList.remove('popup_opened');
   document.removeEventListener("keydown", handlerKeyEsc);
 }
 
@@ -158,3 +179,4 @@ formAddCard.addEventListener('submit', (evt) => {
   cardsContainer.prepend(card);
   closePopup(popupMesto)
 });
+

@@ -1,25 +1,4 @@
-function removeValidationErrors (popup) {
-  const errors = popup.querySelectorAll(".error")
-  errors.forEach((error) => {
-    error.textContent = '';
-  });
-  const inputs = popup.querySelectorAll(".popup__container-input");
-  inputs.forEach((input) => {
-    input.classList.remove("popup__container-input_type_error");
-  });
-  }
-  
-  function enableSubmitButton(button) {
-    button.classList.remove("popup__container-button_disabled");
-    button.disabled = false;
-  }
-  
-  function disableSubmitButton(button) {
-    button.classList.add("popup__container-button_disabled");
-    button.disabled = true;
-  }
-  
-  const showInputError = (input, formError, inputErrorClass) => {
+const showInputError = (input, formError, inputErrorClass) => {
     input.classList.add(inputErrorClass);
     formError.textContent = input.validationMessage;
   };
@@ -98,3 +77,4 @@ function removeValidationErrors (popup) {
     submitButtonSelector: '.popup__container-button',
     inactiveButtonClass: 'popup__container-button_disabled'
   });
+ 
