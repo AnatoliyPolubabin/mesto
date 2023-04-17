@@ -1,5 +1,5 @@
 import Card from "./Card.js";
-import {initialCards, config} from "./constants.js";
+import {initialCards, config} from "./initialCards.js";
 import FormValidator from "./FormValidator.js";
 
 const popupProfile = document.querySelector('.popup-profile');
@@ -63,14 +63,14 @@ initialCards.forEach((item) => {
   addCard(item.name, item.link)
 }); 
 
-//==========================================================
+
 const cardFormValidation = new FormValidator(config, mestoForm);
 const profileFormValidation = new FormValidator(config, formProfile);
 
 cardFormValidation.enableValidation();
 profileFormValidation.enableValidation();
 
-//==========================================================
+
 function keyHandlerEsc(evt) {
   if (evt.key === "Escape") {
   const formOpen=document.querySelector(".popup_opened")
