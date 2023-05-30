@@ -6,6 +6,9 @@ class Card {
     this._link = data.link;
     this._handleCardClick = handleCardClick;
     this._templateSelector = templateSelector;
+   
+    
+    
   };
 
   _getCardTemplate() {

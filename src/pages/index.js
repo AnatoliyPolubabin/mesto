@@ -37,7 +37,7 @@ const cardList = new Section({
 
 cardList.renderItems();
 
-buttonOpenProfilePopup.addEventListener("click", () => {
+buttonOpenPopupAdd.addEventListener("click", () => {
   cardPopup.open();
   cardFormValidation.resetValidation();
 });
@@ -61,7 +61,7 @@ const popupProfileForm = new PopupWithForm('.popup-profile', (value) => {
 
 popupProfileForm.setEventListeners();
 
-buttonOpenPopupAdd.addEventListener("click", () => {
+buttonOpenProfilePopup.addEventListener("click", () => {
   profileFormValidation.resetValidation();
   profileFormValidation.enableButton();
   popupProfileForm.open();
