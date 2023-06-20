@@ -1,15 +1,15 @@
 {
-    "name": "yandex_practicum",
-    "version": "0.0.1",
+    "name": "mesto",
+    "version": "1.0.0",
     "description": "learning",
-    "main": "(index.js)",
+    "main": "index.js",
     "scripts": {
         "build": "webpack --mode production",
         "dev": "webpack serve",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist"
     },
-    "author": "Anatoliy Polubabin",
+    "author": "AnatoliyPolubabin",
     "license": "ISC",
     "dependencies": {
         "core-js": "^3.29.1",
