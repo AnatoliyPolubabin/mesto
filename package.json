@@ -1,27 +1,20 @@
 {
-    "name": "mesto",
-<<<<<<< HEAD
+    "name": "yandex_practicum",
     "version": "0.0.1",
-=======
-    "version": "1.0.0",
->>>>>>> 82e7bed8586240d1354dd5c7965b372089dbbb25
     "description": "learning",
-    "main": "index.js",
+    "main": "(index.js)",
     "scripts": {
         "build": "webpack --mode production",
         "dev": "webpack serve",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist"
     },
-<<<<<<< HEAD
-=======
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/AnatoliyPolubabin/mesto.git"
-    },
->>>>>>> 82e7bed8586240d1354dd5c7965b372089dbbb25
-    "author": "AnatoliyPolubabin",
+    "author": "Anatoliy Polubabin",
     "license": "ISC",
+    "dependencies": {
+        "core-js": "^3.29.1",
+        "jquery": "^3.6.4"
+    },
     "devDependencies": {
         "@babel/core": "^7.21.3",
         "@babel/preset-env": "^7.20.2",
@@ -34,11 +27,8 @@
         "html-webpack-plugin": "^5.5.0",
         "mini-css-extract-plugin": "^2.7.5",
         "postcss-loader": "^7.1.0",
-        "webpack": "^5.76.2",
+        "webpack": "^5.80.0",
         "webpack-cli": "^5.0.1",
-        "webpack-dev-server": "^4.13.1"
-    },
-    "dependencies": {
-        "core-js": "^3.29.1"
+        "webpack-dev-server": "^4.13.3"
     }
 }
