@@ -9,7 +9,7 @@
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist"
     },
-    "author": "AnatoliyPolubabin",
+    "author": "anatoliypolubabin",
     "license": "ISC",
     "dependencies": {
         "core-js": "^3.29.1",
