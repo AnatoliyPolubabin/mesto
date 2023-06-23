@@ -1,7 +1,7 @@
 import './index.css';
 import Card from '../components/Card.js';
 import {
-  initialCards,
+ 
   config,
   selectors,
   nameInput,
@@ -173,8 +173,9 @@ const popupAvatarForm = new PopupWithForm('.popup-avatar', (data) => {
   popupAvatarForm.renderLoading(true);
   api.editProfileAvatar(data)
   .then((data) => {
-      console.log({ avatar: data.avatar})
-      userInfo.setUserAvatar({ avatar: data.avatar})
+      console.log({ avatar: data.avatar 
+      })
+      userInfo.setUserAvatar({ avatar: data.avatar })
       popupAvatarForm.close();
   })
   .catch((err) => {
