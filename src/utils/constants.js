@@ -41,10 +41,13 @@ export const selectors = {
   title: '.element__title',
   buttonLike: '.element__group-title-like',
   buttonDeleteCard: '.element__group-title-delete',
-  buttonImage: '.element__image-button'
+  buttonImage: '.element__image-button',
+  countLike: '.element__group-title-like-number'
 }
 
 const popupProfile = document.querySelector('.popup-profile');
+export const formAvatar = document.querySelector('.form-avatar');
+export const popupAvatarButton = document.querySelector('.profile__avatar-button');
 export const nameInput = popupProfile.querySelector('.popup__container-input_type_name');
 export const jobInput = popupProfile.querySelector('.popup__container-input_type_job');
 export const buttonOpenProfilePopup = document.querySelector('.profile-info__edit-button');
