@@ -1,7 +1,6 @@
 import './index.css';
 import Card from '../components/Card.js';
 import {
- 
   config,
   selectors,
   nameInput,
@@ -13,14 +12,12 @@ import {
   formAvatar,
   formProfile
 } from '../utils/constants.js';
-
 import { FormValidator } from '../components/FormValidator.js';
 import Section from "../components/Section.js";
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import { Api } from '../components/Api.js';
 import UserInfo from '../components/UserInfo.js';
-
 import { PopupWithConfirmation } from '../components/PopupWithConfirmation.js';
 
 
@@ -59,6 +56,7 @@ Promise.all([api.getUserInfo(), api.getAllCards()])
 //   userInfo.setUserAvatar({ avatar });
 // })
 
+
 const popupShowImage = new PopupWithImage('.popup-images');
 popupShowImage.setEventListeners();
 
@@ -68,8 +66,7 @@ const createCard = (data) => {
   const card = new Card(data, templateClass, (name, link) => {
     popupShowImage.open(name, link);
   },
-
-    userInfo.getUserId(),
+  userInfo.getUserId(),
     (cardId) => {
       api.takeLike(cardId)
         .then((data) => {
@@ -102,7 +99,6 @@ const createCard = (data) => {
           });
       })
     });
-
   const cardElement = card.generateCard();
   return cardElement;
 }
@@ -111,8 +107,6 @@ const cardList = new Section({
   items: [],
   render: createCard
 }, '.elements');
-
-
 buttonOpenPopupAdd.addEventListener("click", () => {
   cardPopup.open();
   cardFormValidation.resetValidation();
@@ -173,9 +167,8 @@ const popupAvatarForm = new PopupWithForm('.popup-avatar', (data) => {
   popupAvatarForm.renderLoading(true);
   api.editProfileAvatar(data)
   .then((data) => {
-      console.log({ avatar: data.avatar 
-      })
-      userInfo.setUserAvatar({ avatar: data.avatar })
+    console.log({ avatar: data.avatar })
+    userInfo.setUserAvatar({ avatar: data.avatar })
       popupAvatarForm.close();
   })
   .catch((err) => {
@@ -193,10 +186,11 @@ function handleAvatarClick() {
 
 popupAvatarButton.addEventListener('click', handleAvatarClick);
 
+
 //==========================================================
 
 
-const cardFormValidation = new FormValidator(config, mestoForm);
+const cardFormValidation = new FormValidator(config,  mestoForm);
 const profileFormValidation = new FormValidator(config, formProfile);
 const avatarFormValidation = new FormValidator(config, formAvatar);
 

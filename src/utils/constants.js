@@ -44,7 +44,6 @@ export const selectors = {
   buttonImage: '.element__image-button',
   countLike: '.element__group-title-like-number'
 }
-
 const popupProfile = document.querySelector('.popup-profile');
 export const formAvatar = document.querySelector('.form-avatar');
 export const popupAvatarButton = document.querySelector('.profile__avatar-button');

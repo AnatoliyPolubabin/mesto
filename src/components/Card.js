@@ -63,6 +63,7 @@ class Card {
       }
     });
     this._buttonDeleteCard = this._element.querySelector(selectors.buttonDeleteCard);
+
     this._buttonDeleteCard.addEventListener('click', () => {
       this._handleDeleteButtonClick();
     });
@@ -79,9 +80,9 @@ class Card {
       this._buttonDeleteCard.remove();
     }
   };
-  deleteElement() { 
-    this._element.remove() 
-} 
+  deleteElement() {
+    this._element.remove()
+  }
   handleLikeCard(data) {
     this._likes = data.likes;
     this._countLike.textContent = this._likes.length;
