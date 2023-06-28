@@ -2,7 +2,7 @@
     background-image: url('../../../images/profile_image.jpg');
     margin: 0;
     border-radius: 100%;
-    min-width: 120px;
+    width: 120px;
     height: 120px;
     background-size: cover;
 }
