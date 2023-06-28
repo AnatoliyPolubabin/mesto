@@ -21,4 +21,4 @@
 
 Доставать картинки предстоит из Фигмы. Поэтому я оптимизировал их с помощью- https://tinypng.com/, тем самым скинул с их изночального веса чтобы сайт загружался быстрее.
 
-* [Ссылка на сайт в GitHub](https://AnatoliyPolubabin.github.io/mesto/)
+* [Ссылка на сайт в GitHub](https://github.com/AnatoliyPolubabin/mesto.git)
