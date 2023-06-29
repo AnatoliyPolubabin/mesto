@@ -8,5 +8,5 @@
     background-color: transparent;
 }
 .element__image-button:hover {
-    filter: brightness(60%)
+    filter: brightness(60%);
 }
