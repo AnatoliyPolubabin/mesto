@@ -25,7 +25,7 @@ class Card {
   getCardId() {
     return this._id;
   }
-  // ==================================
+ 
   generateCard() {
     this._element = this._getCardTemplate();
     this._cardImage = this._element.querySelector(selectors.cardImage);
@@ -52,7 +52,7 @@ class Card {
       }
     })
   }
-  // ===========
+
   _setEventListeners() {
 
     this._buttonLike.addEventListener('click', () => {

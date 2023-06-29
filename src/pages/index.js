@@ -30,8 +30,6 @@ const api = new Api({
 });
 Promise.all([api.getUserInfo(), api.getAllCards()])
   .then(([userData, cards]) => {
-    // тут установка данных пользователя
-    // и тут отрисовка карточек
     const { name, about, avatar, _id } = userData;
     cardList.setItems(cards);
     cardList.renderItems();
@@ -41,21 +39,6 @@ Promise.all([api.getUserInfo(), api.getAllCards()])
   }).catch(err => {
     console.log(err);
   });
-
-// const cards = api.getAllCards();
-// cards.then(data => {
-//   cardList.setItems(data);
-//   cardList.renderItems();
-// })
-
-// const profile = api.getUserInfo();
-// profile.then((data) => {
-//   const { name, about, avatar, _id } = data;
-//   userInfo.setUserId(_id);
-//   userInfo.setUserInfo({ name, about });
-//   userInfo.setUserAvatar({ avatar });
-// })
-
 
 const popupShowImage = new PopupWithImage('.popup-images');
 popupShowImage.setEventListeners();
@@ -129,7 +112,6 @@ const cardPopup = new PopupWithForm('.popup-mesto', (item) => {
 
 cardPopup.setEventListeners();
 
-//==============================================================================
 
 const userInfo = new UserInfo({ nameUserElement: '.profile-info__title', informationElement: '.profile-info__subtitle', avatarUserElement: '.profile__avatar-images' });
 
@@ -187,7 +169,6 @@ function handleAvatarClick() {
 popupAvatarButton.addEventListener('click', handleAvatarClick);
 
 
-//==========================================================
 
 
 const cardFormValidation = new FormValidator(config,  mestoForm);
